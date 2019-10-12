@@ -14,6 +14,14 @@ exports.get = (req, res) => {
     
     res.status(200).send(arrProfs)
 }
+exports.getById = (req, res) => {
+    const id = req.params.id
+    const professoras = professoras.find(professoras => professoras.id == id)
+    const profSemCpf = professoras.map(item => {
+        delete item.semCpf
+        return item
+    })
+
 
 //  exports.get = (req, res) => {
 //     const profSemCpf = professoras.map(item => {) 
