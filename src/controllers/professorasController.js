@@ -16,11 +16,17 @@ exports.get = (req, res) => {
 }
 exports.getById = (req, res) => {
     const id = req.params.id
-    const professoras = professoras.find(professoras => professoras.id == id)
-    const profSemCpf = professoras.map(item => {
-        delete item.semCpf
-        return item
-    })
+    const prof = professoras.find(prof => prof.id == id)
+    delete prof.semCpf
+    res.status(200).send(prof)
+
+// exports.getById = (req, res) => {
+//     const id = req.params.id
+//     const professoras = professoras.find(professoras => professoras.id == id)
+//     const profSemCpf = professoras.map(item => {
+//         delete item.semCpf
+//         return item
+//     })
 
 
 //  exports.get = (req, res) => {
